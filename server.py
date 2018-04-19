@@ -2,20 +2,24 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-counts=0
+counts= {"GET":0, "POST":0, "DELETE":0, "PUT":0}
 
 
-@app.route("/request_counter", methods=["GET", "POST"])
+@app.route("/request_counter", methods=["GET", "POST", "DELETE", "PUT"])
 def request_counter():
-    if request.method=="GET":
+    if request.method in ["GET", "POST", "DELETE", "PUT"]:
         global counts
-        counts += 1
+        counts[request.method] += 1
         return redirect("/")
+
+
+# @app.route("/statistic")
+# def statiscitc():
 
 
 @app.route("/")
 def index():
-    return render_template("index.html", counts=counts)
+    return render_template("index.html", counter=counts)
 
 
 if __name__ == '__main__':

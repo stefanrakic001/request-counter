@@ -5,7 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-{{ counts }}
-
+<p>GET : {{ counter["GET"] }}<p/>
+<p>POST :{{ counter["POST"] }}</p>
+<p>DELETE :{{ counter["DELETE"] }}</p>
+<p>PUT : {{ counter["PUT"] }}</p>
+<p><a href="request_counter" name="getting get request">getting get request</a> </p>
+<form action="/request_counter" method="post">
+    <button type="submit" value="getting post"> post request</button>
+</form>
 </body>
 </html>

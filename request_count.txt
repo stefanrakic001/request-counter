@@ -1,0 +1,8 @@
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+cwd = os.getcwd()
+
+{{ counter["GET"}}
+{{ counter["POST"}}
+{{ counter["DELETE"}}
+{{ counter["PUT"}
